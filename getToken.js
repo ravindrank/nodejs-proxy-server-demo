@@ -10,10 +10,14 @@ var githubAuth = new clientOAuth2({
   scopes: ["notifications", "gist"],
 });
 
+githubAuth.credentials.getToken().then(function (user) {
+  console.log(user); //=> { accessToken: '...', tokenType: 'bearer', ... }
+});
+
 // form data
 
 const formData = new URLSearchParams();
-formData.append("clientId", "value1");
+formData.append("client_Id", "value1");
 formData.append("clientSecret", "value2");
 formData.append("scope", "value2");
 formData.append("grant_type", "value2");
